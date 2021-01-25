@@ -29,7 +29,7 @@
 
     <!-- ################### Bank Section ################### -->
     <div id="bank-area">
-        
+
         <!-- .row>.col-md-4*3>.status>h5{demo}+h2{00} -->
         <div class="row">
             <div class="col-md-4">
@@ -51,8 +51,28 @@
                 </div>
             </div>
         </div>
-    </div>
 
+        <!-- .row>.col-md-6*2>h4+input+btn.btn.btn-success -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="submit-area">
+                    <h4>Deposit</h4>
+                    <input type="text" placeholder="$ amount you want to deposit" class="form-control">
+                    <br>
+                    <button class="btn btn-success">Deposit</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="submit-area">
+                    <h4>Withdraw</h4>
+                    <input type="text" placeholder="$ amount you want to withdraw" class="form-control">
+                    <br>
+                    <button class="btn btn-success">Withdraw</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <!-- ########################################## -->
     <!-- JavaScript - add for interactive elements  -->
@@ -62,17 +82,22 @@
         const loginBtn = document.getElementById('login');
         const bankArea = document.getElementById('bank-area');
 
+        // Step - 1
+        // Login Button Event Handler
         loginBtn.addEventListener('click', function () {
-            
-            // Step - 1
+
+            // Task - 1
             // hide total login area
             loginArea.style.display = "none";
 
-            // Step - 2
+            // Task - 2
             // Override CSS Property & Visible the HTML Element
             bankArea.style.display = "block"
 
         });
+
+        // Step - 2
+        
 
     </script>
     <!-- ########################################## -->
