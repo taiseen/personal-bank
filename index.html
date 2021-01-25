@@ -13,20 +13,69 @@
 
 <body>
 
+    <!-- ################### Login Section ################### -->
     <div id="login-area">
-        
         <h1 class="text-center">Welcome To Personal Bank</h1>
-
         <div class="submit-area">
             <h4>Login</h4>
             <input type="text" placeholder="Email" class="form-control">
             <br>
             <input type="password" placeholder="Password" class="form-control">
             <br>
-            <button class="btn btn-success">Enter</button>
+            <button id="login" class="btn btn-success">Enter</button>
         </div>
     </div>
 
+
+    <!-- ################### Bank Section ################### -->
+    <div id="bank-area">
+        
+        <!-- .row>.col-md-4*3>.status>h5{demo}+h2{00} -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="status deposit">
+                    <h5>Deposit</h5>
+                    <h2>$ 00</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="status withdraw">
+                    <h5>Withdraw</h5>
+                    <h2>$ 00</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="status balance">
+                    <h5>Balance</h5>
+                    <h2>$ 1240</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ########################################## -->
+    <!-- JavaScript - add for interactive elements  -->
+    <!-- ########################################## -->
+    <script>
+        const loginArea = document.getElementById('login-area');
+        const loginBtn = document.getElementById('login');
+        const bankArea = document.getElementById('bank-area');
+
+        loginBtn.addEventListener('click', function () {
+            
+            // Step - 1
+            // hide total login area
+            loginArea.style.display = "none";
+
+            // Step - 2
+            // Override CSS Property & Visible the HTML Element
+            bankArea.style.display = "block"
+
+        });
+
+    </script>
+    <!-- ########################################## -->
 </body>
 
 </html>

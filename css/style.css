@@ -2,11 +2,36 @@ body{
     padding: 100px;
 }
 
-/* Basic Style of Login Window */
+/* Basic Style of Login Section */
 .submit-area{
     padding: 50px;
     margin-top: 50px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px gray;
+}
+
+/* By Default Hide These Elements */
+#bank-area{
+    display: none;
+}
+
+/* For Common Style For all Box */
+.status{
+    margin: 0 20px;
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+}
+
+.deposit{
+    background-color: slateblue;
+}
+
+.withdraw{
+    background-color: lightsalmon;
+}
+
+.balance{
+    background-color: orange;
 }
 
