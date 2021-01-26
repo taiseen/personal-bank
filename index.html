@@ -30,44 +30,48 @@
     <!-- ################### Bank Section ################### -->
     <div id="bank-area">
 
+        <!-- Section 1 - For Result  -->
         <!-- .row>.col-md-4*3>.status>h5{demo}+h2{00} -->
         <div class="row">
             <div class="col-md-4">
                 <div class="status deposit">
                     <h5>Deposit</h5>
-                    <h2>$ 00</h2>
+                    <h2>$ <span id="currentDeposit">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="status withdraw">
                     <h5>Withdraw</h5>
-                    <h2>$ 00</h2>
+                    <h2>$ <span id="currentWithdraw">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="status balance">
                     <h5>Balance</h5>
-                    <h2>$ 1240</h2>
+                    <h2>$ <span id="currentBalance">1200</span></h2>
                 </div>
             </div>
         </div>
 
+        <!-- Section 2 - For Input -->
         <!-- .row>.col-md-6*2>h4+input+btn.btn.btn-success -->
         <div class="row">
             <div class="col-md-6">
                 <div class="submit-area">
                     <h4>Deposit</h4>
-                    <input type="text" placeholder="$ amount you want to deposit" class="form-control">
+                    <input id="depositAmount" type="text" placeholder="$ amount you want to --> deposit"
+                        class="form-control">
                     <br>
-                    <button class="btn btn-success">Deposit</button>
+                    <button id="deposit" class="btn btn-success">Deposit</button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="submit-area">
                     <h4>Withdraw</h4>
-                    <input type="text" placeholder="$ amount you want to withdraw" class="form-control">
+                    <input id="withdrawAmount" type="text" placeholder="$ amount you want to --> withdraw"
+                        class="form-control">
                     <br>
-                    <button class="btn btn-success">Withdraw</button>
+                    <button id="withdraw" class="btn btn-success">Withdraw</button>
                 </div>
             </div>
         </div>
@@ -78,9 +82,24 @@
     <!-- JavaScript - add for interactive elements  -->
     <!-- ########################################## -->
     <script>
+
+        // Hook needed HTML Elements & store those an according variable.
         const loginArea = document.getElementById('login-area');
         const loginBtn = document.getElementById('login');
         const bankArea = document.getElementById('bank-area');
+
+        // button Element
+        const depositBtn = document.getElementById('deposit');
+        const withdrawBtn = document.getElementById('withdraw');
+
+        // input Element
+        const depositAmount = document.getElementById('depositAmount');
+        const withdrawAmount = document.getElementById('withdrawAmount');
+
+        // span txt Element
+        const currentDeposit = document.getElementById('currentDeposit');
+        const currentWithdraw = document.getElementById('currentWithdraw');
+        const currentBalance = document.getElementById('currentBalance');
 
         // Step - 1
         // Login Button Event Handler
@@ -96,8 +115,53 @@
 
         });
 
+
         // Step - 2
-        
+        // Task - 1 - Deposit ==> ########################
+        depositBtn.addEventListener('click', function () {
+
+            // get the value from <input> element & convert it 
+            const depositNumber = getInputFromElement(depositAmount);
+
+            updateSpanText(currentDeposit, depositNumber);
+            updateSpanText(currentBalance, depositNumber);
+
+            // for clearing the value of <input> element
+            depositAmount.value = "";
+        });
+
+        // Task - 2 - Withdraw ==> ########################
+        withdrawBtn.addEventListener('click', function () {
+
+            // get the value from <input> element & convert it 
+            const withdrawNumber = getInputFromElement(withdrawAmount);
+
+            updateSpanText(currentWithdraw, withdrawNumber);
+
+            // for clearing the value of input element
+            withdrawAmount.value = "";
+        });
+
+        // Common Function's
+
+        // get value from <input> element
+        function getInputFromElement(id) {
+            const number = parseFloat(id.value)
+            return number;
+        }
+
+        // calculate & update <span> element
+        function updateSpanText(id, givenNumber) {
+
+            // convert the innerText to float for all 
+            const currentNumber = parseFloat(id.innerText);
+
+            // add total amount for all
+            const totalAmount = givenNumber + currentNumber;
+
+            // Update the result at span Element
+            id.innerText = totalAmount;
+        }
 
     </script>
     <!-- ########################################## -->
